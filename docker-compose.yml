@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  php:
+    build: ./.docker/php
+    ports:
+      - "8000:80"
+    depends_on:
+      - mysql
+    volumes:
+      - .:/var/www/html
+      - composer-vendor:/var/www/html/vendor
+
+  web:
+    image: nginx:latest
+
+  mysql:
+    build: ./.docker/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: examplepw
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: examplepw
+    volumes:
+      - phpmyadmin-session:/sessions
+
+volumes:
+  composer-vendor:
+  mysql-data:
+  phpmyadmin-session:
