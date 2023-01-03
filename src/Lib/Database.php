@@ -27,4 +27,9 @@ readonly class Database
     {
         return new self('complex');
     }
+
+    public static function factorySimple(): self
+    {
+        return new self('simple');
+    }
 }
