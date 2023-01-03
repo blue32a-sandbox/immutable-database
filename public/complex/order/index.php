@@ -11,7 +11,7 @@ $order = new Order($db->connection());
 ?>
 <html lang="ja">
 <head>
-    <title></title>
+    <title>注文一覧</title>
 </head>
 <body>
     <table>

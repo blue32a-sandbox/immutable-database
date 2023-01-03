@@ -9,10 +9,10 @@ $db = Database::factoryComplex();
 $order = new Order($db->connection());
 
 $orderMemberId = 1;
-$orderAt = date('Y-m-d H:i:s');
+$orderedAt = date('Y-m-d H:i:s');
 $orderAmount = 12000;
 
-if ($order->insert($orderMemberId, $orderAt, $orderAmount)) {
+if ($order->insert($orderMemberId, $orderedAt, $orderAmount)) {
     echo 'Success!!';
 } else {
     echo 'Failed!!';

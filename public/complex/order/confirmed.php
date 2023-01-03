@@ -14,9 +14,8 @@ if (!isset($_GET['id'])) {
 
 $orderId = (int) $_GET['id'];
 $orderConfirmedSupervisor = '確認太郎';
-$orderConfirmedAt = '2023-01-03 09:37:32';
 
-if ($order->confirmed($orderId, $orderConfirmedSupervisor, $orderConfirmedAt)) {
+if ($order->confirmed($orderId, $orderConfirmedSupervisor)) {
     echo 'Success!!';
 } else {
     echo 'Failed!!';

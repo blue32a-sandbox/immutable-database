@@ -15,9 +15,9 @@ if (!isset($_GET['id'])) {
 $orderId = $_GET['id'];
 $amountBilled = 12000;
 $depositScheduledDate = '2023-02-01';
-$billingAt = '2023-01-04 13:08:19';
+$billedAt = '2023-01-04 13:08:19';
 
-if ($order->billing($orderId, $amountBilled, $depositScheduledDate, $billingAt)) {
+if ($order->billing($orderId, $amountBilled, $depositScheduledDate, $billedAt)) {
     echo 'Success!!';
 } else {
     echo 'Failed!!';
